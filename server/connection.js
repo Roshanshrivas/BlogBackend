@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const connectDb = async () => {
-  const connection = await mongoose.connect(process.env.MONGODB_URL);
+  const connection = await mongoose.connect(process.env.MONGODB_URL, {
+      ssl: true,
+      sslValidate: true,
+      tlsAllowInvalidCertificates: false
+  });
   if (connection.STATES.uninitialized) {
     console.log("Database is not connected");
   }
