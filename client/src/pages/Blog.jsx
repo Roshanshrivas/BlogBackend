@@ -73,7 +73,7 @@ const Blog = () => {
       return
     }
 
-    const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}0/api/addComment/${id}`, {
+    const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/addComment/${id}`, {
       comment :newComment,
       userName,
       userImage,

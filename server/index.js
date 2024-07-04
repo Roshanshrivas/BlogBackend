@@ -7,14 +7,23 @@ const { connectDb } = require("./connection")
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 connectDb();
 
+
+app.use((req, res, next) => {
+    res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+    next();
+});
+
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL,
     credentials: true,
 }));
+
+
+
 
 app.use(express.json())
 app.use(cookieParser());
