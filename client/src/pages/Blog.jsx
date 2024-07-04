@@ -49,7 +49,10 @@ const Blog = () => {
       setUserAuthenticated(true);
       toast.success(`Welcome ${displayName} 👏`)
     })
-    .catch((error) => toast.error(error.message))
+    .catch((error) => {
+      console.log("Google Signup error")
+      toast.error(error.message)
+    })
   };
 
   const signOutWithGoogle = () => {
