@@ -36,7 +36,7 @@ const signup = async(req, res) => {
         })
 
     }catch(error){
-        console.log(error)
+        console.log("Auth Error")
         return res.status(500).json({
             success:false,
             message:"Error.message"
